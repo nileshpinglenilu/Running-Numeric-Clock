@@ -7,3 +7,4 @@ To use this clock on your website or project:
 Feel free to modify the code to suit your specific requirements or integrate it into existing projects.
 
 
+![1](https://github.com/nileshpinglenilu/Running-Numeric-Clock/assets/36918876/696f8071-db53-4dd6-9fd9-ff8d4842c339)
