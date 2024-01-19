@@ -1,0 +1,51 @@
+#clock {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+    font-size: 24px;
+    border: solid;
+    border-radius: 50%; /* Make it a circle */
+    overflow: hidden; /* Ensure content doesn't go outside the circle */
+    background-color: black; /* Set the background color of the clock to black */
+}
+
+.hour-line,
+.minute-line,
+.second-line {
+    position: absolute;
+    transform-origin: 50% 100%;
+    padding-bottom: 15%;
+    left: 50%;
+}
+
+.hour-line {
+    width: 6px;
+    height: 60px;
+    top: 90px;
+  color: white;
+}
+
+.minute-line {
+    width: 4px;
+    height: 80px;
+    top: 40px;
+  color: white;
+}
+
+.second-line {
+    width: 2px;
+    height: 100px;
+    top: 25px;
+  color: white;
+}
+
+.clock_text {
+    position: absolute;
+    bottom: 30px; /* Adjust this value to move the text up */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: gold;
+}
+

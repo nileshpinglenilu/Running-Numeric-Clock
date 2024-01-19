@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moving Timer</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <style>
+    #clock {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 50px auto;
+      font-size: 24px;
+      border: solid;
+      border-radius: 50%; /* Make it a circle */
+      overflow: hidden; /* Ensure content doesn't go outside the circle */
+      background-color: black; /* Set the background color of the clock to black */
+    }
+    .hour-line, .minute-line, .second-line {
+      position: absolute;
+      transform-origin: 50% 100%;
+      padding-bottom: 15%;
+      left: 50%;
+    }
+    .hour-line {
+      width: 6px;
+      height: 60px;
+      top: 90px;
+    }
+    .minute-line {
+      width: 4px;
+      height: 80px;
+      top: 40px;
+    }
+    .second-line {
+      width: 2px;
+      height: 100px;
+      top: 25px;
+    }
+    .clock_text {
+      position: absolute;
+      bottom: 30px; /* Adjust this value to move the text up */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="clock">
+  <div class="hour-line" id="hourLine">
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+  </div>
+  <div class="minute-line" id="minuteLine">
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+  </div>
+  <div class="second-line" id="secondLine">
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+    <div class="clock_number">00</div>
+  </div>
+  <!-- New div for displaying "Namma NITK" -->
+  <div class="clock_text" >Namma NITK</div>
+</div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours() || 12;
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourAngle = (hours % 12) * 30 + minutes * 0.5;
+    const minuteAngle = minutes * 6;
+    const secondAngle = seconds * 6;
+
+    $("#hourLine").css("transform", `rotate(${hourAngle}deg)`).children(".clock_number").html(hours).css("transform", `rotate(${-hourAngle}deg)`);
+    $("#minuteLine").css("transform", `rotate(${minuteAngle}deg)`).children(".clock_number").html(minutes).css("transform", `rotate(${-minuteAngle}deg)`);
+    $("#secondLine").css("transform", `rotate(${secondAngle}deg)`).children(".clock_number").html(seconds).css("transform", `rotate(${-secondAngle}deg)`);
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock(); // Initial call to display the clock immediately
+</script>
+
+</body>
+</html>
+
